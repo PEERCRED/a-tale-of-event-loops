@@ -396,7 +396,7 @@ event loop "requests" sent by our awaitable objects.
    ...             try:
    ...                 data = task.send(data)
    ...             except StopIteration:
-   ...                 # NEW: wait up tasks waiting on this one.
+   ...                 # NEW: wake up tasks waiting on this one.
    ...                 tasks.extend((t, None) for t in watch.pop(task, []))
    ...             else:
    ...                 # NEW: dispatch request sent by awaitable object since
